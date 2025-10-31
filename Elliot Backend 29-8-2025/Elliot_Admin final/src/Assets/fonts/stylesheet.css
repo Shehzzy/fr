@@ -1,0 +1,60 @@
+@font-face {
+    font-family: 'Gobold';
+    src: url('Gobold.woff2') format('woff2'),
+        url('Gobold.woff') format('woff'),
+        url('Gobold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gobold';
+    src: url('GoboldThin-Italic.woff2') format('woff2'),
+        url('GoboldThin-Italic.woff') format('woff'),
+        url('GoboldThin-Italic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gobold';
+    src: url('GoboldBold.woff2') format('woff2'),
+        url('GoboldBold.woff') format('woff'),
+        url('GoboldBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gobold';
+    src: url('GoboldThin.woff2') format('woff2'),
+        url('GoboldThin.woff') format('woff'),
+        url('GoboldThin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gobold';
+    src: url('GoboldBold-Italic.woff2') format('woff2'),
+        url('GoboldBold-Italic.woff') format('woff'),
+        url('GoboldBold-Italic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gobold';
+    src: url('Gobold-Italic.woff2') format('woff2'),
+        url('Gobold-Italic.woff') format('woff'),
+        url('Gobold-Italic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+

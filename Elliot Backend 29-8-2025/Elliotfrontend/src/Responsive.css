@@ -1,0 +1,414 @@
+@media (max-width: 1699px) {
+  html {
+    font-size: 60%;
+  }
+
+  .comn-class-inputs {
+    margin-bottom: 13px;
+  }
+
+  .login-img-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .loginupper-right h2 {
+    font-size: 3rem;
+    line-height: 3.9rem;
+  }
+
+  .login_remeber_row label {
+    font-size: 1.4rem;
+    line-height: 1.7rem;
+  }
+
+  .forg-pass-text {
+    font-size: 1.8rem;
+    line-height: 1.9rem;
+    margin-bottom: 3rem;
+  }
+
+  .custom-checkbox label::after {
+    left: 10px;
+    top: 19%;
+    rotate: 45deg;
+  }
+}
+
+@media (max-width: 1599px) {
+  html {
+    font-size: 58%;
+  }
+
+  .login-btn.btn-primary,
+  .main-btn,
+  .main-outline-btn {
+    min-width: 16rem;
+    padding: 1.6rem 2rem;
+    min-height: 5rem;
+  }
+
+  .card-detail-price .main-btn {
+    min-width: unset;
+  }
+
+  .login-btn.btn-primary {
+    margin-top: 3rem;
+  }
+
+  .comn-class-inputs input.form-control,
+  .comn-class-inputs select.form-select,
+  .comn-class-inputs textarea.form-control {
+    padding: 1.6rem 2rem;
+  }
+
+  .auth-bottom-link-sec {
+    margin-top: 3rem;
+  }
+
+  .inner-login-mian {
+    padding: 2rem 7rem;
+  }
+
+  .site_header_logo {
+    max-width: 18rem;
+  }
+
+  .comm_sec_heading {
+    font-size: 5rem;
+    line-height: 5rem;
+  }
+
+  .comm_sec_padd {
+    padding: 10rem 0;
+  }
+
+  .hero_inner_sec_content {
+    margin: 2rem auto 0rem;
+  }
+
+  .home_search_wrapper {
+    margin-bottom: 5rem;
+  }
+}
+
+@media (max-width: 1399px) {
+  .comm_sec_padd {
+    padding: 10rem 0;
+  }
+}
+
+@media (max-width: 1199px) {
+  .loginupper-right h2 {
+    font-size: 2.8rem;
+    line-height: 3.9rem;
+  }
+
+  .inner-login-mian {
+    padding: 15px;
+  }
+
+  .upper-fig-main-login {
+    display: none;
+  }
+
+  .loginupper-right {
+    margin-inline: auto;
+  }
+
+  .auth-bottom-link-sec {
+    margin-top: 3rem;
+  }
+
+  .login-btn.btn-primary {
+    min-width: unset;
+  }
+
+  .login-section {
+    margin-top: 12rem;
+  }
+
+  .row-min-h {
+    min-height: unset;
+  }
+
+  .subscription_sec .comm_sec_heading {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .casual_plan_img {
+    max-width: 100%;
+  }
+
+
+
+
+}
+
+@media (max-width: 991px) {
+  html {
+    font-size: 54%;
+  }
+
+  .weighted_player_img {
+    width: 14rem;
+    height: 14rem;
+  }
+
+  .weighted_score_row {
+    flex-direction: column;
+    max-width: 60rem;
+    margin-inline: auto;
+  }
+
+  .sidebar-toggle {
+    display: flex;
+  }
+
+  .sidebar-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: right;
+    background: none;
+    color: var(--maincolor);
+  }
+
+  .sidebar_main_outer {
+    position: relative;
+    height: auto;
+  }
+
+  .sidebar-wrapper .sidebar-content {
+    padding: 2rem;
+  }
+
+  .sidebar-wrapper {
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 3.6rem;
+    left: 0;
+    width: 100%;
+    background: #000;
+    z-index: 3;
+    transition: all 0.4s ease-in-out;
+    border-radius: 8px;
+  }
+
+  .sidebar-wrapper.open {
+    height: 36rem;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .sidebar-toggle svg {
+    color: var(--main-color);
+  }
+
+  .profile_main_row {
+    flex-grow: unset;
+  }
+
+  .slide-navli {
+    flex-grow: unset;
+  }
+
+  .payment_history_table table {
+    min-width: 350px;
+  }
+
+  .comm_profile_heading.pf_heading {
+    text-align: center;
+  }
+
+  .weighted_score_col {
+    width: 100%;
+  }
+
+
+
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+
+  .info_start_box {
+    padding: 4rem;
+  }
+
+  .how_we_work_img {
+    padding-bottom: 40%;
+  }
+
+  .how_we_work_col .cntnt h5 {
+    min-height: unset;
+  }
+
+  .header_profile_link {
+    display: block;
+  }
+
+  .header_user_info_wrapper .cst_header_user_info {
+    display: none !important;
+  }
+
+  .site_header .navbar-collapse {
+    background: #fff;
+    color: #000;
+    border-radius: 20px;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+  }
+
+  .header_right_links .header_link {
+    color: #000;
+  }
+
+  .header_right_links {
+    padding: 24px !important;
+    margin: 0;
+  }
+
+  .site_header_btns {
+    flex-direction: column;
+
+  }
+
+  .site_header_btns_login.site_header_btns {
+    margin-bottom: 4rem;
+    margin-top: -1.2rem;
+  }
+
+  .site_header_btns a {
+    width: fit-content;
+    margin-inline: auto;
+    border: 1px solid var(--main-color);
+  }
+
+  .copyright_sec {
+    justify-content: center;
+  }
+
+  .copyright_sec p {
+    font-size: 1.6rem;
+  }
+
+  .card-detail-price .blg_heading {
+    min-height: unset;
+  }
+
+}
+
+@media (max-width: 575px) {
+  .home_search_wrapper {
+    flex-direction: column;
+  }
+
+  .how_we_work_col {
+    padding: 3rem 2rem;
+  }
+
+  .how_we_work_col .cntnt h5 {
+    display: inline-block;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .site_header_btns a {
+    min-width: unset;
+    white-space: nowrap;
+  }
+
+  .site_header_logo {
+    max-width: 12rem;
+    margin-right: 1rem;
+  }
+
+  .login-btn.btn-primary,
+  .main-btn,
+  .main-outline-btn {
+    min-height: unset;
+    padding: 1.4rem 2rem;
+  }
+
+  .info_start_box .comm_sec_heading {
+    margin-bottom: 5rem;
+    font-size: 2.6rem;
+    line-height: 3.8rem;
+  }
+
+  .select_player_img {
+    width: 20rem;
+    height: 20rem;
+  }
+
+  .weighted_score_col .player_info {
+    flex-wrap: wrap;
+  }
+
+  p {
+    font-size: 1.8rem;
+  }
+
+  .dash-pair-btns-comn {
+    flex-wrap: wrap;
+  }
+
+  .comm_profile_layout .comm_border_box {
+    padding: 4rem 3rem;
+  }
+
+  .modal-delete-logout .modal-dialog .modal-content {
+    padding: 2rem;
+  }
+
+  .inner-body-delete-logout h4 {
+    font-size: 3.2rem;
+    line-height: 4.6rem;
+  }
+
+  .profile_edit_icon {
+    width: 4rem;
+    height: 4rem;
+    flex: 0 0 4rem;
+  }
+
+  .profile_edit_icon img {
+    max-width: 3rem;
+  }
+
+  .profile-img-edit {
+    width: 7rem;
+    height: 7rem;
+  }
+
+  .how_we_work_col .cntnt p {
+    display: inline-block;
+  }
+
+  .comm_modal .modal-dialog .modal-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .payment_detail_listing th {
+    white-space: nowrap;
+    padding: 1rem 1.5rem !important;
+  }
+
+  .privacy_content_sec p {
+    font-size: 1.6rem;
+  }
+
+
+}

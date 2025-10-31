@@ -1,0 +1,613 @@
+@media(max-width: 1699px) {
+  html {
+    font-size: 60.5%;
+  }
+
+  .welcoms-section {
+    background-color: var(--maincolor);
+    padding: 2.2rem 2.5rem;
+    border-radius: 16px;
+  }
+
+  .ing-sec-acrd-dash figure {
+    width: 65px;
+    height: 65px;
+    padding: 1.0rem;
+  }
+
+  .ing-sec-acrd-dash {
+    align-items: center;
+    gap: 1.3rem;
+  }
+
+  .text-disc-card p {
+    font-size: 1.4rem;
+    line-height: 1.741rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .ing-sec-acrd-dash figure {
+    width: 51px;
+    height: 51px;
+    padding: 1.0rem;
+  }
+
+  .inner-dashboard-card {
+    padding: 1.6rem 1.6rem;
+  }
+
+  .text-disc-card h4 {
+    font-size: 2.7rem;
+    font-weight: 700;
+    line-height: 3.699rem;
+  }
+
+  .notification-table table tr td {
+    padding: 2.0rem 1.0rem 2.0rem 2.0rem !important;
+    font-size: 1.4rem;
+    line-height: 1.741rem;
+  }
+
+  .head-class-td th {
+    font-size: 1.5rem;
+    line-height: 1.7rem;
+    padding: 2.0rem 1.0rem 2.0rem 2.0rem !important;
+  }
+
+  .notifi-list {
+
+    padding: 0px 0px 0px 0px;
+    margin-bottom: 2.5rem;
+  }
+
+  .bell-main {
+    width: 45px;
+    height: 45px;
+    font-size: 25px;
+  }
+
+  .inner-left-chat-img {
+    padding: 1.4rem;
+  }
+
+  .name-chat-highlite h4 {
+    font-size: 1.4rem;
+    line-height: 1.912rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .figure {
+    width: 39px;
+    height: 38px;
+  }
+
+  .inner-head-plus h6 {
+    font-size: 2.0rem;
+  }
+
+  .search-people {
+    padding: 1.0rem 0rem 0 0;
+    margin-bottom: 2.0rem;
+  }
+
+  .first-caht {
+    justify-content: space-between;
+    padding: 1.3rem 1.0rem 1.3rem 1.2rem;
+  }
+
+  .name-chat-highlite p {
+    font-size: 12px;
+    line-height: 19.12px;
+  }
+
+  .chat-date p {
+    font-size: 1.4rem;
+    line-height: 2.0rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .profile-chat-img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .sidebar {
+    width: 280px !important;
+  }
+
+  nav.navbar {
+    background-color: white !important;
+    width: calc(100% - 280px) !important;
+    padding: 1.6rem 2.5rem;
+  }
+
+  .dashboard_header.navbar {
+    width: calc(100% - 280px) !important;
+    padding: 2.4rem;
+  }
+
+  .main-dash-left {
+    width: calc(100% - 280px) !important;
+    padding: 3rem 3.0rem 1.0rem 3.0rem !important;
+  }
+
+  .search-people input {
+    font-size: 1.4rem;
+    line-height: 1.912rem;
+    padding: 1.3rem 3.3rem;
+  }
+
+  .request-refil {
+    padding: 1.0rem;
+    font-size: 1.4rem;
+  }
+
+  .icon-search-main input.form-control {
+    font-size: 1.4rem;
+    padding: 1.6rem 2.5rem 1.6rem 5.5rem;
+    width: 289px;
+  }
+
+  .notifi-list h6 {
+    font-size: 2.0rem;
+  }
+
+  .inner-body-request-fill h4 {
+    font-size: 3.0rem;
+    line-height: 2.699rem;
+    margin-bottom: 2.0rem;
+  }
+
+  .discript-main-notify {
+    font-size: 1.4rem;
+    line-height: 2.3rem;
+  }
+
+  .notifications_ul .notify_inner_row .notify_img {
+    width: 62px;
+    height: 62px;
+    flex: 0 0 62px;
+  }
+
+  .heading-view-med {
+    font-size: 2.0rem;
+    line-height: 2.611rem;
+    margin-bottom: 2.1rem;
+  }
+
+  .notify_inner_row {
+    gap: 2.0rem;
+    padding-top: 2.0rem;
+    padding-bottom: 2rem;
+  }
+
+  .patient-age-name {
+    align-items: center;
+    gap: 5rem;
+  }
+
+  .comn-class-inputs input.form-control,
+  .comn-class-inputs select.form-select,
+  .comn-class-inputs textarea.form-control {
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    padding: 1.6rem 1.6rem;
+
+  }
+
+  .table-pay-proceed {
+    background-color: white;
+    padding: 0 1.0rem 2.0rem 1.0rem;
+  }
+
+  .upper-over-view-table {
+    padding: 1.0rem 1.2rem 1.2rem 1.2rem;
+  }
+
+  .pharmacy-name h5 {
+    font-size: 1.4rem;
+  }
+
+  .add-medici-custm {
+    padding: 1.4rem;
+  }
+
+  .counter-btns {
+    padding: 5px;
+    height: 48px;
+    font-size: 23px;
+  }
+
+  .inner-request-form {
+    padding: 2rem;
+  }
+
+  .add-notification-btn {
+    font-size: 1.4rem;
+  }
+
+  .comn-class-inputs {
+    margin-bottom: 13px;
+  }
+
+  .login-img-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .loginupper-right h2 {
+    font-size: 3.0rem;
+    line-height: 3.9rem;
+    margin-bottom: 1.0rem;
+  }
+
+  .upper-main-forgot-pass label {
+    font-size: 1.4rem;
+    line-height: 1.7rem;
+  }
+
+  .forg-pass-text {
+    font-size: 1.8rem;
+    line-height: 1.9rem;
+    margin-bottom: 3rem;
+  }
+
+  .inner-cards-main-profile h3 {
+    margin-bottom: 2.4rem;
+    font-size: 2.0rem;
+  }
+
+  .img-rpofile-amin-name figure {
+    width: 8.7rem;
+    height: 8.7rem;
+  }
+
+  .custom-checkbox label::after {
+    left: 10px;
+    top: 19%;
+    rotate: 45deg;
+  }
+}
+
+
+
+@media(max-width:1199px) {
+  .toggl-main {
+    display: flex;
+  }
+
+  .active-sidebar .toggl-main {
+    transition: all 0.5s ease-out;
+    right: -12px;
+  }
+
+  .sidebar {
+    overflow: visible;
+    left: -260px;
+    transition: all 0.5s ease-out;
+  }
+
+  .sidebar.active-sidebar {
+    left: 0%;
+  }
+
+  nav.navbar {
+    background-color: white !important;
+    width: 100% !important;
+    padding: 1.6rem 2.5rem;
+    margin-bottom: 3.4rem;
+  }
+
+  .main-dash-left {
+    width: 100% !important;
+  }
+
+  .toggl-main {
+    width: 32px;
+    height: 32px;
+    right: -80px;
+    top: 21px;
+    font-size: 16px;
+  }
+
+  nav.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 99;
+  }
+
+  .modal-delete-logout.modal-request-refil .modal-dialog {
+    max-width: 1023px;
+    margin-right: 12px;
+    margin-left: 12px;
+  }
+
+  .loginupper-right h2 {
+    font-size: 2.8rem;
+    line-height: 3.9rem;
+    margin-bottom: 1.0rem;
+  }
+
+  .inner-login-mian {
+    padding-left: 15px;
+  }
+
+  .dashboard_header.navbar {
+    width: calc(100% - 8rem) !important;
+  }
+
+
+
+}
+
+@media (max-width: 991px) {
+
+  .notification-table table tr td {
+    padding: 1rem 1.0rem 1rem 1rem !important;
+    font-size: 1.4rem;
+    line-height: 1.741rem;
+  }
+
+  .head-class-td th {
+    font-size: 1.4rem;
+    line-height: 1.7rem;
+    padding: 1rem 1.0rem 1rem 1rem !important;
+  }
+
+  .notification-table {
+    overflow: auto;
+  }
+
+  .notification-table table {
+    width: 800px;
+  }
+
+  .inner-dashboard-card {
+    padding: 1.0rem 1.0rem;
+  }
+
+  html {
+    font-size: 57.5%;
+  }
+
+  .patient-age-name {
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .notify_inner_row {
+    flex-wrap: wrap;
+  }
+
+  .img-n {
+
+    display: none;
+  }
+
+  .profile-img-edit {
+    width: 11.5rem;
+    height: 11.5rem;
+  }
+
+  .upper-mian-tabs-comn .nav-link {
+    width: 16.3rem;
+    padding: 1.4rem 1.0rem;
+    font-size: 1.6rem;
+    line-height: 1.741rem;
+  }
+
+  .outgoing-income-table-width.notification-table table {
+    width: 100%;
+  }
+
+  .welcom-upper {
+    justify-content: flex-end;
+  }
+
+  .dashboard_header.navbar {
+    width: calc(100%) !important;
+  }
+}
+
+@media(max-width:767px) {
+
+  .notifi-list {
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .upper-questio-radio {
+    gap: 1.6rem;
+    flex-wrap: wrap;
+  }
+
+  .radio-cutm {
+    max-width: 100%;
+  }
+
+  .patient-age-name {
+    gap: 3rem;
+    row-gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .patient-anme-view h5 {
+    font-size: 1.6rem;
+    line-height: 1.741rem;
+    margin-bottom: 1.0rem;
+  }
+
+  .welcoms-section p {
+    font-size: 1.6rem;
+    line-height: 2.3rem;
+    margin-bottom: 2.4rem;
+  }
+
+  .img-rpofile-amin-name figure {
+    width: 7.7rem;
+    height: 7.7rem;
+  }
+
+  .name-rpofile-id h5 {
+    font-size: 2.0rem;
+    line-height: 2.611rem;
+    margin-bottom: 1.0rem;
+  }
+
+  .inner-login-mian {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  .signup_page_row {
+    flex-wrap: wrap;
+  }
+
+  .signup_page_row .howItWork_col {
+    width: 100%;
+  }
+
+  .upper-mian-tabs-comn .nav-link {
+    width: 15.3rem;
+    padding: 1.2rem 1.0rem;
+    font-size: 1.4rem;
+    line-height: 1.741rem;
+  }
+
+  .outgoing-income-table-width.notification-table table {
+    width: 500px;
+  }
+
+  .custom-checkbox label::after {
+    left: 10px;
+    top: 18%;
+  }
+}
+
+@media(max-width:575px) {
+
+  html {
+    font-size: 54.5%;
+  }
+
+  .welcoms-section h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .notification-table table {
+    width: 551px;
+  }
+
+  .dropdowns-inner-list {
+    flex-wrap: wrap;
+    row-gap: 11px;
+  }
+
+  .main-notification-messege {
+    margin-bottom: 50px;
+    padding: 2rem;
+  }
+
+  .notify_inner_row .content {
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .sidebar-wrapper {
+    height: 100%;
+    padding: 1.8rem 1.5rem 2rem 1.4rem;
+    overflow: auto;
+  }
+
+  .profile-main-show {
+    flex-wrap: wrap;
+    padding: 1.4rem 1.6rem;
+    row-gap: 20px;
+    border-radius: 10px;
+  }
+
+  .fax-request-btns-tab .upper-mian-tabs-comn .nav-link {
+    width: 17.5rem;
+  }
+
+  .upper-mian-tabs-comn .nav-link {
+    width: fit-content;
+    padding: 1.0rem 1.4rem;
+    font-size: 1.4rem;
+    line-height: 1.741rem;
+    white-space: nowrap;
+  }
+
+  .comn-back-white {
+    padding: 1.2rem !important;
+    border-radius: 1.0rem;
+  }
+
+  .comn-btn-pair.btn-primary,
+  a.comn-btn-pair {
+    font-size: 1.4rem;
+    padding: 1.2rem 1.4rem;
+  }
+
+  .custom-checkbox label:after {
+    left: 9px;
+    top: 18%;
+  }
+
+
+}
+
+@media(max-width:425px) {
+
+  .icon-search-main input.form-control {
+    font-size: 1.4rem;
+    padding: 1.6rem 2.5rem 1.6rem 5.5rem;
+    width: 100%;
+  }
+
+  .main-dash-left {
+    width: 100% !important;
+    padding: 2rem 1.2rem 1.0rem 1.2rem !important;
+  }
+
+  .welcoms-section p {
+    font-size: 1.4rem;
+    line-height: 2.3rem;
+    margin-bottom: 2.0rem;
+  }
+
+  .sidebar {
+    width: 217px !important;
+  }
+
+  .sidebar {
+    overflow: visible;
+    left: -240px;
+    transition: all 0.5s ease-out;
+  }
+
+  .img-patient figure {
+    width: 35px;
+    height: 35px;
+  }
+
+  .modal-delete-logout.modal-request-refil .modal-dialog .modal-content {
+    padding: 1.5rem;
+  }
+
+  html {
+    font-size: 52.5%;
+  }
+
+  .upper-mian-tabs-comn .nav-link {
+    width: fit-content;
+    padding: 1.0rem 1.0rem;
+  }
+
+  .fax-request-btns-tab .upper-mian-tabs-comn .nav-link {
+    width: fit-content;
+  }
+}
