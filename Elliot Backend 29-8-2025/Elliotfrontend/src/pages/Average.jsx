@@ -23,7 +23,7 @@ const Average = () => {
   const [selectedPosition, setSelectedPosition] = useState("")
   const { user } = useUser()
   const limit = 10
-  const isInactive = user?.subscription_status === "inactive" || !user
+  const isInactive = !user;
   const navigate = useNavigate()
 
   const fetchRankingsData = async (page = 1, sortBy = null, order = "desc", position = "", isLoadMore = false) => {
@@ -318,12 +318,12 @@ const Average = () => {
                     >
                       🔒
                     </div>
-                    <h4>Premium Content Locked</h4>
-                    <p>Please purchase premium to see all player rankings</p>
+                    <h4>Content Locked</h4>
+                    <p>Please log in to see all player rankings</p> {/* 🚨 CHANGED THIS TEXT */}
                     <div className="d-flex justify-content-center">
                       <button
                         onClick={() => {
-                          navigate("/subscription")
+                          navigate("/login") // 🚨 CHANGED TO LOGIN PAGE
                         }}
                         style={{
                           background: "#007bff",
@@ -334,8 +334,8 @@ const Average = () => {
                           cursor: "pointer",
                         }}
                       >
-                        Upgrade to Premium
-                      </button>
+                        Login to View All
+                      </button> {/* 🚨 CHANGED BUTTON TEXT */}
                     </div>
                   </div>
                 )}

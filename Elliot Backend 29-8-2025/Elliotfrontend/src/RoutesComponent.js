@@ -50,6 +50,14 @@ function RoutesComponent({ canvas }) {
       element: (
           <Compare />
       ),
+    },
+        {
+      path: '/weighted-score/*',
+      element: (
+        // <PrivateRoute>
+          <WeightedScore />
+        // </PrivateRoute>
+      ),
     }
   ]);
 
@@ -79,14 +87,7 @@ function RoutesComponent({ canvas }) {
         </PrivateRoute>
       ),
     },
-    {
-      path: '/weighted-score/*',
-      element: (
-        <PrivateRoute>
-          <WeightedScore />
-        </PrivateRoute>
-      ),
-    },
+
     {
       path: '/profile',
       element: (

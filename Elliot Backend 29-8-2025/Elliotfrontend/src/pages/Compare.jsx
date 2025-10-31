@@ -32,7 +32,7 @@ function Compare() {
       try {
         setLoadingPopular(true)
         const response = await axios.get(`${BASE_URL_SPORTS_API}/most-compared-player-list`, {
-          headers: { "x-guest-accessed": localStorage.getItem("guestAccessed"), Token: token },
+          headers: { Token: token },
         })
         setPopularData(response.data)
       } catch (err) {
@@ -95,7 +95,7 @@ function Compare() {
       try {
         setLoading(true)
         const res = await axios.get(`${BASE_URL_SPORTS_API}/odd-players`, {
-          headers: {"x-guest-accessed": localStorage.getItem("guestAccessed"), Token: token },
+          headers: {Token: token },
         })
 
         const options = res.data.players.map((p) => ({
@@ -136,18 +136,18 @@ function Compare() {
   }, [])
 
 
-  useEffect(() => {
-    // Optional reset once per day
-    const today = new Date().toDateString();
-    const lastAccessDate = localStorage.getItem("guestAccessDate");
-  
-    if (lastAccessDate !== today) {
-      localStorage.removeItem("guestAccessed");
-      localStorage.setItem("guestAccessDate", today);
-    }
-  }, []);
 
-  
+  useEffect(() => {
+  // Reset guest access once per day
+  const today = new Date().toDateString();
+  const lastAccessDate = localStorage.getItem("guestAccessDate");
+
+  if (lastAccessDate !== today) {
+    localStorage.removeItem("guestAccessed");
+    localStorage.setItem("guestAccessDate", today);
+  }
+}, []);
+
 
 
   useEffect(() => {
@@ -241,104 +241,92 @@ function Compare() {
       setPlayerHeadshots((prev) => [...prev, Playr])
     }
   }
-  const handleSubmit = async () => {
-    setError("")
-    setSubscriptionError("")
-    const validPlayers = selectedPlayers.filter((player) => player !== null)
-    if (validPlayers.length < 2) {
-      setError("Please select at least 2 players before submitting!!!")
-      return
-    }
-    // if (user.subscription_status === "active" || user.has_accessed_once !== true) {
-    //   try {
-    //     const playerIDs = validPlayers.map((player) => player.value)
-    //     await axios.post(`${BASE_URL_SPORTS_API}/add-compare-player`, {
-    //       playerIDs: playerIDs,
-    //     })
-    //     const playersData = validPlayers.map((player, index) => ({
-    //       id: player.value,
-    //       name: player.label,
-    //       headshot: playerHeadshots[selectedPlayers.indexOf(player)],
-    //     }))
-    //     navigate(`/weighted-score/${playerIDs.join("/")}`, {
-    //       state: { players: playersData },
-    //     })
-    //   } catch (err) {
-    //     console.error("Failed to log comparison:", err)
-    //     const playerIDs = validPlayers.map((player) => player.value)
-    //     const playersData = validPlayers.map((player, index) => ({
-    //       id: player.value,
-    //       name: player.label,
-    //       headshot: playerHeadshots[selectedPlayers.indexOf(player)],
-    //     }))
 
-    //     navigate(`/weighted-score/${playerIDs.join("/")}`, {
-    //       state: { players: playersData },
-    //     })
-    //   }
-    // } else {
-    //   if (btnName === "Subscribe") {
-    //     navigate("/subscription")
-    //   } else {
-    //     setSubscriptionError("You have already used your one-time access. Please subscribe for unlimited access.")
-    //     setBtnName("Subscribe")
-    //   }
-    // }
+const handleSubmit = async () => {
+  setError("")
+  setSubscriptionError("")
+  const validPlayers = selectedPlayers.filter((player) => player !== null)
 
-
-    if (user || (!user && localStorage.getItem("guestAccessed") !== "true")) {
-      try {
-        const playerIDs = validPlayers.map((player) => player.value);
-        await axios.post(`${BASE_URL_SPORTS_API}/add-compare-player`, { playerIDs });
-    
-        const playersData = validPlayers.map((player, index) => ({
-          id: player.value,
-          name: player.label,
-          headshot: playerHeadshots[selectedPlayers.indexOf(player)],
-        }));
-    
-        // Mark guest as having used their one free access
-        if (!user) localStorage.setItem("guestAccessed", "true");
-    
-        navigate(`/weighted-score/${playerIDs.join("/")}`, {
-          state: { players: playersData },
-        });
-      } catch (err) {
-        console.error("Failed to log comparison:", err);
-    
-        const playerIDs = validPlayers.map((player) => player.value);
-        const playersData = validPlayers.map((player, index) => ({
-          id: player.value,
-          name: player.label,
-          headshot: playerHeadshots[selectedPlayers.indexOf(player)],
-        }));
-    
-        navigate(`/weighted-score/${playerIDs.join("/")}`, {
-          state: { players: playersData },
-        });
-      }
-    } else {
-      // Guest already used their one free access
-      Swal.fire({
-        title: "Access Restricted",
-        text: "You’ve already used your one-time free comparison. Please log in for unlimited access.",
-        icon: "warning",
-        confirmButtonText: "Login Now",
-        confirmButtonColor: "#6FAD02",
-        allowOutsideClick: false,
-      }).then((result) => {
-        if (result.isConfirmed) {
-          navigate("/login"); // ✅ takes user to login page
-        }
-      });
-    }
-    
-    
-
-    
-
-
+  if (validPlayers.length < 2) {
+    setError("Please select at least 2 players before submitting!!!")
+    return
   }
+
+  console.log("User:", user);
+  console.log("Guest Accessed:", localStorage.getItem("guestAccessed"));
+
+  // Check if user is logged in OR guest hasn't used their free access
+  if (user || (!user && localStorage.getItem("guestAccessed") !== "true")) {
+    console.log("Allowing comparison - user is logged in OR guest hasn't used access");
+    try {
+      const playerIDs = validPlayers.map((player) => player.value)
+
+      // Only make the API call if user is logged in
+      if (user) {
+  await axios.post(`${BASE_URL_SPORTS_API}/add-compare-player`, {
+    playerIDs: playerIDs,
+  }, {
+    headers: {
+      "x-guest-accessed": localStorage.getItem("guestAccessed"),
+      Token: token,
+    }
+  })
+}
+
+      const playersData = validPlayers.map((player, index) => ({
+        id: player.value,
+        name: player.label,
+        headshot: playerHeadshots[selectedPlayers.indexOf(player)],
+      }))
+
+      // Mark guest as having used their one free access
+      if (!user) {
+        localStorage.setItem("guestAccessed", "true")
+        console.log("Marked guest as having used their free access");
+      }
+
+      navigate(`/weighted-score/${playerIDs.join("/")}`, {
+        state: { players: playersData },
+      })
+    } catch (err) {
+      console.error("Failed to log comparison:", err)
+
+      // Even if API fails, still navigate to comparison
+      const playerIDs = validPlayers.map((player) => player.value)
+      const playersData = validPlayers.map((player, index) => ({
+        id: player.value,
+        name: player.label,
+        headshot: playerHeadshots[selectedPlayers.indexOf(player)],
+      }))
+
+      navigate(`/weighted-score/${playerIDs.join("/")}`, {
+        state: { players: playersData },
+      })
+    }
+  } else {
+    console.log("Guest has already used their free access - showing popup");
+    // Guest has already used their one free access
+    Swal.fire({
+      title: "Access Restricted",
+      text: "You've already used your one-time free comparison. Please log in or sign up for unlimited access.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Login",
+      cancelButtonText: "Sign Up",
+      confirmButtonColor: "#6FAD02",
+      cancelButtonColor: "#3085d6",
+      allowOutsideClick: false,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        navigate("/login")
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        navigate("/signup")
+      }
+    })
+  }
+}
+
+
   if (loading || loadingPopular) {
     return (
       <div className="comm_page_wrapper">

@@ -57,9 +57,9 @@ const SideBar = () => {
     }
   };
 
-  const handleSubscriptionPage = () => {
-    navigate("/subscription", { state: { homeData } });
-  };
+  // const handleSubscriptionPage = () => {
+  //   navigate("/subscription", { state: { homeData } });
+  // };
 
   return (
     <>
@@ -83,7 +83,7 @@ const SideBar = () => {
                   <p>My profile</p>
                 </div>
               </li>
-              <li onClick={() => navigate("/payment-histroy")}>
+              {/* <li onClick={() => navigate("/payment-histroy")}>
                 <div
                   className={
                     location.pathname === "/payment-histroy"
@@ -93,8 +93,8 @@ const SideBar = () => {
                 >
                   <p>Payments History</p>
                 </div>
-              </li>
-              <li onClick={handleSubscriptionPage}>
+              </li> */}
+              {/* <li onClick={handleSubscriptionPage}>
                 {" "}
                 <div
                   className={
@@ -105,7 +105,7 @@ const SideBar = () => {
                 >
                   <p>Subscription Plan</p>
                 </div>
-              </li>
+              </li> */}
               <li onClick={() => navigate("/change-password")}>
                 <div
                   className={

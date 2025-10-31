@@ -26,27 +26,33 @@ export const UserProvider = ({ children }) => {
   }, [token]);
 
   useEffect(() => {
-    if (token !== null) fetchUserDetails();
+    if (token) {
+      fetchUserDetails();
+    } else {
+      setLoginChecked(true);
+      setLoading(false);
+    }
   }, [token]);
 
   const fetchUserDetails = async (access_token) => {
     setLoading(true);
-
     try {
       const response = await axios.get(`${BASE_URL_USER}${VIEW_PROFILE}`, {
         headers: { Token: token || access_token },
       });
 
-      if (response.status === 200) {
+      if (response.status === 200 && response.data?.data) {
         setUser(response.data.data);
-        setLoginChecked(true);
       } else {
         localStorage.removeItem("token");
+        setUser(null);
       }
     } catch (error) {
-      console.error("Invalid or expired token. Logging out.");
+      console.error("Invalid or expired token.");
       localStorage.removeItem("token");
+      setUser(null);
     } finally {
+      setLoginChecked(true);
       setLoading(false);
     }
   };
@@ -64,11 +70,12 @@ export const UserProvider = ({ children }) => {
       setLoading(false);
     }
   };
+
   const fetchPrivacyPolicy = async () => {
     try {
       setLoading(true);
       const res = await axios.get(`${BASE_URL_ADMIN}${GET_PRIVACY_POLICY}`);
-      if (res.status === 200) {
+      if (res.status === 200 && res.data?.data) {
         setPrivacyPolicy(res.data.data);
       }
     } catch (error) {
@@ -83,27 +90,30 @@ export const UserProvider = ({ children }) => {
     axios
       .get(`${BASE_URL_ADMIN}${GET_BLOG}`)
       .then((response) => {
-        console.log(response);
-        setBlogs(response.data.data);
+        if (response.data?.data) {
+          setBlogs(response.data.data);
+        }
       })
       .catch((error) => {
         console.error("Error fetching blogs:", error);
+      })
+      .finally(() => {
         setLoading(false);
       });
-    setLoading(false);
   }, []);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setLoading(true); // ✅ start loader
-
+        setLoading(true);
         const blogsRes = await axios.get(`${BASE_URL_ADMIN}${GET_BLOG}`);
 
-        const sortedBlogs = blogsRes.data.data.sort(
-          (a, b) => new Date(b.created_at) - new Date(a.created_at)
-        );
-        setLatestBlogs(sortedBlogs.slice(0, 3));
+        if (blogsRes.data?.data) {
+          const sortedBlogs = blogsRes.data.data.sort(
+            (a, b) => new Date(b.created_at) - new Date(a.created_at)
+          );
+          setLatestBlogs(sortedBlogs.slice(0, 3));
+        }
       } catch (error) {
         console.error("Error fetching blog details:", error);
       } finally {

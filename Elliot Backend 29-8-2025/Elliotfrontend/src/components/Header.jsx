@@ -64,7 +64,7 @@ function Header() {
   }, []);
 
   const handleProfileClick = () => {
-    if (loginChecked) {
+    if (user) {
       navigate("/profile");
     }
   };
@@ -82,18 +82,18 @@ function Header() {
                 <img src={logo} alt="Site Logo" className="img-fluid" />
               </Navbar.Brand>
               <Navbar.Toggle aria-controls="navbarScroll">
-                {loginChecked ? (
+                {user ? (
                   <div className="d-flex cst_header_user_info toggle_header_img">
                     <figure className="prf_img">
-                      {user && user?.image !== null ? (
+                      {user?.image ? (
                         <img
-                          src={BASE_URL_IMAGE + user?.image}
+                          src={BASE_URL_IMAGE + user.image}
                           alt="User Profile"
                           className="img-fluid"
                         />
                       ) : (
                         <span className="user-initial">
-                          {user.full_name?.charAt(0)?.toUpperCase() || "U"}
+                          {user?.full_name?.charAt(0)?.toUpperCase() || "U"}
                         </span>
                       )}
                     </figure>
@@ -119,23 +119,19 @@ function Header() {
                     Vegas ADP
                   </Link>
 
-                  <Link
-                    to="/profile"
-                    className="header_link header_profile_link"
-                  >
-                    My Profile
-                  </Link>
-                  {/* <Link
-                    to="/profile"
-                    className="header_link header_profile_link">
-                    Logout
-                  </Link> */}
+                  {user && (
+                    <Link
+                      to="/profile"
+                      className="header_link header_profile_link"
+                    >
+                      My Profile
+                    </Link>
+                  )}
                 </Nav>
                 <div
-                  className={`site_header_btns ${loginChecked ? "" : "site_header_btns_login"
-                    }`}
+                  className={`site_header_btns ${user ? "" : "site_header_btns_login"}`}
                 >
-                  {!loginChecked ? (
+                  {!user ? (
                     <>
                       <Link to="/login" className="main-btn" type="submit">
                         Login
@@ -155,21 +151,21 @@ function Header() {
                         className="d-flex cst_header_user_info"
                       >
                         <figure className="prf_img">
-                          {user && user?.image !== null ? (
+                          {user?.image ? (
                             <img
-                              src={BASE_URL_IMAGE + user?.image}
+                              src={BASE_URL_IMAGE + user.image}
                               alt="User Profile"
                               className="img-fluid"
                             />
                           ) : (
                             <span className="user-initial">
-                              {user.full_name?.charAt(0)?.toUpperCase() || "U"}
+                              {user?.full_name?.charAt(0)?.toUpperCase() || "U"}
                             </span>
                           )}
                         </figure>
                         <div>
                           <h6 className="name">
-                            {loading ? <Loader /> : user.full_name}
+                            {loading ? <Loader /> : user?.full_name || "User"}
                           </h6>
                         </div>
                       </div>
