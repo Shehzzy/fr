@@ -1,0 +1,22 @@
+.google-login-btn-wrapper {
+  margin: 1rem 0;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 1.5rem 0;
+  color: #6c757d;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.divider span {
+  padding: 0 1rem;
+}

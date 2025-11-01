@@ -12,6 +12,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { BASE_URL_USER, LOGIN } from "../API";
 import { useUser } from "../context/UserContext";
+import GoogleLoginButton from "../components/GoogleLoginButton";
 
 function Login() {
   const {
@@ -119,6 +120,22 @@ function Login() {
                   </figure>
                 </Link>
                 <h2>Login to your account</h2>
+
+                  {/* Google Login Button */}
+                <div className="mb-4">
+                  <GoogleLoginButton 
+                    isSubmitting={isSubmitting}
+                    setIsSubmitting={setIsSubmitting}
+                    classN="comn-class-inputs"
+                    buttonText="continue_with"
+                  />
+                </div>
+                
+                <div className="divider">
+                  <span>OR</span>
+                </div>
+
+
                 <Form onSubmit={handleSubmit(submitHandler)}>
                   <Row>
                     <Col md={12}>

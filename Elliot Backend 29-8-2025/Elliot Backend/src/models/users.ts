@@ -18,7 +18,10 @@ export interface IUser extends Document {
   stripeCustomerId: string;
   stripeSubscriptionId: string;
   stripeCurrentPeriodEnd: number; // Timestamp for end of billing period
-  stripeCheckoutSessionId: string | null
+  stripeCheckoutSessionId: string | null,
+  // Add Google OAuth fields
+  googleId: string | null;
+  provider: 'local' | 'google'; // Add provider field
 }
 
 const UserSchema = new Schema<IUser>({
@@ -40,6 +43,13 @@ const UserSchema = new Schema<IUser>({
   stripeSubscriptionId: { type: String, default: null },
   stripeCurrentPeriodEnd: { type: Number, default: null },
   stripeCheckoutSessionId: { type: String, default: null },
+    // Google OAuth fields
+  googleId: { type: String, default: null, sparse: true },
+  provider: { 
+    type: String, 
+    enum: ['local', 'google'], 
+    default: 'local' 
+  },
 
   created_at: { type: String, default: () => `${+new Date()}` },
 }, { timestamps: true });

@@ -12,6 +12,11 @@ function Header() {
   const { user, loginChecked, loading } = useUser();
   const navigate = useNavigate();
 
+  // Debug: Check the complete user object
+  console.log('Complete user object:', user);
+  console.log('User image:', user?.image);
+  console.log('All user keys:', user ? Object.keys(user) : 'No user');
+
   const headerRef = useRef(null);
   const isStickySet = useRef(false);
   const hasUserInteracted = useRef(false);
@@ -69,6 +74,23 @@ function Header() {
     }
   };
 
+  // Profile Image Component (reusable)
+  const ProfileImage = () => (
+    <figure className="prf_img">
+      {user?.image && !user.image.includes('googleusercontent.com') ? (
+        <img
+          src={BASE_URL_IMAGE + user.image}
+          alt="User Profile"
+          className="img-fluid"
+        />
+      ) : (
+        <span className="user-initial">
+          {user?.full_name?.charAt(0)?.toUpperCase() || "U"}
+        </span>
+      )}
+    </figure>
+  );
+
   return (
     <>
       <header ref={headerRef} className="site_header">
@@ -84,19 +106,7 @@ function Header() {
               <Navbar.Toggle aria-controls="navbarScroll">
                 {user ? (
                   <div className="d-flex cst_header_user_info toggle_header_img">
-                    <figure className="prf_img">
-                      {user?.image ? (
-                        <img
-                          src={BASE_URL_IMAGE + user.image}
-                          alt="User Profile"
-                          className="img-fluid"
-                        />
-                      ) : (
-                        <span className="user-initial">
-                          {user?.full_name?.charAt(0)?.toUpperCase() || "U"}
-                        </span>
-                      )}
-                    </figure>
+                    <ProfileImage /> {/* Use the same component */}
                     <FaChevronDown />
                   </div>
                 ) : (
@@ -150,19 +160,7 @@ function Header() {
                         onClick={handleProfileClick}
                         className="d-flex cst_header_user_info"
                       >
-                        <figure className="prf_img">
-                          {user?.image ? (
-                            <img
-                              src={BASE_URL_IMAGE + user.image}
-                              alt="User Profile"
-                              className="img-fluid"
-                            />
-                          ) : (
-                            <span className="user-initial">
-                              {user?.full_name?.charAt(0)?.toUpperCase() || "U"}
-                            </span>
-                          )}
-                        </figure>
+                        <ProfileImage /> {/* Use the same component here too */}
                         <div>
                           <h6 className="name">
                             {loading ? <Loader /> : user?.full_name || "User"}

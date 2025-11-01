@@ -11,6 +11,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { BASE_URL_USER, REGISTER } from "../API";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import GoogleLoginButton from "../components/GoogleLoginButton";
 
 function Registration() {
   const {
@@ -90,6 +91,21 @@ function Registration() {
                   </figure>
                 </Link>
                 <h2>Register</h2>
+
+                {/* Google Login Button */}
+                <div className="mb-4">
+                  <GoogleLoginButton  
+                    isSubmitting={isSubmitting}
+                    setIsSubmitting={setIsSubmitting}
+                    buttonText="signup_with"
+                  />
+                </div>
+                
+                <div className="divider">
+                  <span>OR</span>
+                </div>
+
+
                 <Form onSubmit={handleSubmit(submitHandler)}>
                   <Row>
                     <Col md={12}>
@@ -123,6 +139,7 @@ function Registration() {
                             {errors.full_name.message}
                           </span>
                         )}
+                        
                       </Form.Group>
                     </Col>
                     <Col md={12}>
