@@ -27,58 +27,66 @@ function WeightedScore() {
   const [performanceFetched, setPerformanceFetched] = useState(false)
   console.log(playerData)
 
- useEffect(() => {
-  if (loading || !playerIDsString) return
-  const fetchPlayerPerformances = async () => {
-    try {
-      setLoadingPerformance(true)
-      setPerformanceFetched(false)
-      const playerIDs = playerIDsString.split("/")
+  useEffect(() => {
+    if (loading || !playerIDsString) return
+    const fetchPlayerPerformances = async () => {
+      try {
+        setLoadingPerformance(true)
+        setPerformanceFetched(false)
+        const playerIDs = playerIDsString.split("/")
 
-      console.log("Fetching performances for:", {
-        playerIDs,
-        user: !!user,
-        guestAccessed: localStorage.getItem("guestAccessed")
-      });
-
-      const response = await axios.post(
-        `${BASE_URL_SPORTS_API}/player-performances`,
-        {
+        console.log("Fetching performances for:", {
           playerIDs,
-          user,
-        },
-        {
-          headers: {
-            Token: token,
+          user: !!user,
+          guestAccessed: localStorage.getItem("guestAccessed")
+        });
+
+        const reqUser = {
+          _id: localStorage.getItem("user_id"),
+          full_name: localStorage.getItem("user_name"),
+          email: localStorage.getItem("user_email"),
+        };
+
+
+        const response = await axios.post(
+          `${BASE_URL_SPORTS_API}/player-performances`,
+          {
+            playerIDs: playerIDs,
+            user: reqUser, //send this user object
           },
-        },
-      )
+          {
+            headers: {
+              Token: token,
+              "x-guest-accessed": localStorage.getItem("guestAccessed"),
+            },
+          },
+        )
 
-      setPlayerData(response.data)
-      setPerformanceFetched(true)
-      setError(null)
-    } catch (err) {
-      console.error("Failed to fetch player performances", err)
-      
-      // 🚨 CREATE FALLBACK DATA SO PAGE STILL WORKS
-      const fallbackData = {
-        players: playerIDsString.split("/").map(id => ({
-          playerID: id,
-          weightedScore: Math.random() * 100,
-          stats: {}
-        }))
+        setPlayerData(response.data)
+        setPerformanceFetched(true)
+        setError(null)
+      } catch (err) {
+        console.error("Failed to fetch player performances", err)
+
+        // 🚨 CREATE FALLBACK DATA SO PAGE STILL WORKS
+        const fallbackData = {
+          players: playerIDsString.split("/").map(id => ({
+            playerID: id,
+            weightedScore: Math.random() * 100,
+            stats: {}
+          }))
+        }
+
+        setPlayerData(fallbackData)
+        setPerformanceFetched(true)
+        setError("Using demo data. Some features may be limited.")
+      } finally {
+        setLoadingPerformance(false)
       }
-      
-      setPlayerData(fallbackData)
-      setPerformanceFetched(true)
-      setError("Using demo data. Some features may be limited.")
-    } finally {
-      setLoadingPerformance(false)
     }
-  }
 
-  fetchPlayerPerformances()
-}, [loading, user, playerIDsString])
+    fetchPlayerPerformances()
+  }, [loading, user, playerIDsString])
 
   useEffect(() => {
     if (!performanceFetched) return
@@ -357,7 +365,7 @@ function WeightedScore() {
                               marginBottom: "8px",
                             }}
                           >
-                            {formatPlayerName(playerData.playerID)}
+                            {formatPlayerName(playerData?.playerID)}
                           </h2>
                           <p style={{ color: "#9CA3AF" }}>Positions: QB, WR, TE, RB</p>
                         </div>

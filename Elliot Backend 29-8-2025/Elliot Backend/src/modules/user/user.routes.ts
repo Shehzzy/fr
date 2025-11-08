@@ -3,8 +3,9 @@ import userController from "./user.controller";
 import authenticator from "../../middlewares/authenticator";
 import { signupvalidation, sendOtp, checkOtp, edit, loginValidation} from "../../middlewares/validation";
 import { validate } from "../../middlewares/validation_res";
+import googleAuthRoutes from '../google/googleAuthRoute';  // ✅ CORRECT POSITION
+
 const router = express.Router();
-import googleAuthRoutes from '../google/googleAuthRoute';
 
 router.post("/sign-up", validate(signupvalidation), userController.signUp)
 router.post("/check-otp", validate(checkOtp), userController.checkOtp)
@@ -17,6 +18,5 @@ router.put("/forgot-password", userController.forgetPassword)
 router.post("/set-new-password", userController.setNewPassword)
 router.post("/change-password", authenticator, userController.changePassword);
 router.use("/auth", googleAuthRoutes);
-
 
 export default router;

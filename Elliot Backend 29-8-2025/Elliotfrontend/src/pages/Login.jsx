@@ -51,12 +51,13 @@ function Login() {
     try {
       const response = await axios.post(apiUrl, data);
       if (response.status === 200 && response.data?.data?.access_token) {
-        const { access_token, _id, full_name, otp_verified } =
+        const { access_token, _id, full_name, otp_verified, email } =
           response.data.data;
 
         localStorage.setItem("token", access_token);
         localStorage.setItem("user_id", _id);
         localStorage.setItem("user_name", full_name);
+        localStorage.setItem("user_email", email);
 
         await fetchUserDetails(access_token);
         // Check if user is verified

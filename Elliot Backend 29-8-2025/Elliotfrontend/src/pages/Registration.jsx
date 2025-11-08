@@ -37,6 +37,7 @@ function Registration() {
     const storedPassword = localStorage.getItem("password_user");
     setValue("email_user", storedEmail);
     setValue("password_user", storedPassword);
+    setValue("subscription_status", "active"); 
   }, [setValue]);
 
   const submitHandler = async (data) => {

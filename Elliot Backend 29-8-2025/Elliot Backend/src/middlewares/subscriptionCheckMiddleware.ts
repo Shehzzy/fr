@@ -4,32 +4,26 @@ const subscriptionCheckMiddleware = async (req: any, res: any, next: any) => {
   try {
     const user = req.body.user;
 
-    // ✅ ONLY apply guest access check to comparison creation endpoint
-    const isComparisonCreation = req.path.includes('/add-compare-player');
-    
-    // For all other endpoints (including /player-performances), allow access
-    if (!isComparisonCreation) {
+    // Logged-in users: allow all
+    if (user) {
       return next();
     }
 
-    // ✅ If no user found, treat as guest - ONLY for comparison creation
-    if (!user) {
-      const guestAccessed = req.headers["x-guest-accessed"] === "true";
-      if (guestAccessed) {
-        return res.status(403).json({
-          success: false,
-          message: "You have already used your one-time access. Please log in for unlimited access.",
-        });
-      }
-      return next(); 
+    // Guests: check if they already used their free access
+    const guestAccessed = req.headers['x-guest-accessed']; // frontend sets this
+    if (!guestAccessed || guestAccessed !== 'true') {
+      return next(); // allow first-time guest
     }
 
-    return next();
+    // Guest has already used free access: block
+    return res.status(403).json({
+      success: false,
+      message:
+        "You've already used your one-time free comparison. Please log in or subscribe for unlimited access.",
+    });
   } catch (err) {
     handleCatch(res, err);
   }
 };
-
-
 
 export default subscriptionCheckMiddleware;
